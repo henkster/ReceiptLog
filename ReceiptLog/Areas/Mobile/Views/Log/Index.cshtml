@@ -1,0 +1,38 @@
+﻿@using ReceiptLog.Areas.Mobile.Models
+@model LogCreateViewModel
+
+@{
+    ViewBag.Title = "Receipt Log";
+    Layout = "~/Areas/Mobile/Views/Shared/_MobileLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.AccountName)
+    @Html.EditorFor(m => m.AccountName)
+    
+    @Html.LabelFor(m => m.Amount)
+    @Html.EditorFor(m => m.Amount)
+    
+    @Html.LabelFor(m => m.When)
+    @Html.TextBox("When", Model.When.ToString("M/d/yy"))
+    
+    @Html.LabelFor(m => m.Where)
+    @Html.EditorFor(m => m.Where)
+    
+    @Html.LabelFor(m => m.Why)
+    @Html.EditorFor(m => m.Why)
+
+    <label for="date">Date Input:</label>
+    <input type="date" name="date" id="date" value=""  />
+
+    <input type="submit" value="Log" />
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#When").focus(function () {
+            $(this).select();
+        });
+    })
+</script>
